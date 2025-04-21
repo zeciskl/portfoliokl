@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kshitiz Lamsal's Portfolio</title>
+    <link rel="icon" href="profile.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #2b4032;
+    color: #fff;
+    position: fixed;
+    width: 90%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 1.5rem;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+#star {
+    height: 20px;
+    margin-right: 6px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: #ffd166;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ffd166;
+    transition: width 0.3s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.button {
+    background-color: #ffd166;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #2a3a2f;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.button:hover {
+    background-color: #ffbb00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#mero {
+    text-align: center;
+    padding: 180px 20px 100px;
+    background: linear-gradient(135deg, #2b4032 0%, #3f4d3f 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+#mero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.my-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ffd166;
+    font-family: 'Courier New', monospace;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: fadeIn 1s ease-out;
+}
+
+.my-subtitle {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-out 0.2s both;
+}
+
+.intro-pic {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 4%;
+    border: 3px solid rgba(255, 209, 102, 0.25);
+    margin: 0 auto 20px;
+    display: block;
+    background-image: url(meropic.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    animation: float 6s ease-in-out infinite;
+}
+
+.social-links {
+    margin-top: 20px;
+    animation: fadeIn 1s ease-out 0.4s both;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s, transform 0.3s;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    color: #ffd166;
+    transform: translateY(-3px);
+}
+
+section {
+    padding: 80px 10%;
+    background-color: white;
+    position: relative;
+}
+
+.intro {
+    background-color: #2a3a2f;
+    color: white;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    color: #2a3a2f;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.intro h2 {
+    color: #ffd166;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #ffd166;
+    margin-top: 10px;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #ffd166;
+    margin: 0 auto 30px;
+    display: block;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.line {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 30px;
+}
+
+.line-item {
+    padding: 25px 0;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.intro .line-item {
+    border-bottom-color: rgba(255,255,255,0.1);
+}
+
+.line-item:last-child {
+    border-bottom: none;
+}
+
+.line-item::before {
+    content: '';
+    position: absolute;
+    left: -35px;
+    top: 30px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffd166;
+    border: 3px solid #2a3a2f;
+    z-index: 2;
+}
+
+.intro .line-item::before {
+    border-color: #2a3a2f;
+}
+
+.line::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #2a3a2f;
+}
+
+.intro .line::before {
+    background-color: #ffd166;
+}
+
+.year {
+    font-weight: bold;
+    color: #ffd166;
+    display: inline-block;
+    margin-bottom: 5px;
+    background-color: rgba(255, 209, 102, 0.2);
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+.intro .year {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.skill-category {
+    background-color: #f0f0f0;
+    padding: 25px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 250px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.skill-category:hover {
+    background-color: #ffd166;
+    color: #2a3a2f;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.intro .skill-category {
+    background-color: #3f4d3f;
+    color: white;
+}
+
+.intro .skill-category:hover {
+    color: #2a3a2f;
+}
+
+.skill-category h3 {
+    margin-top: 0;
+    color: inherit;
+}
+
+.skill-category ul {
+    padding-left: 20px;
+}
+
+.skill-category li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.skill-category li::before {
+    content: '▹';
+    position: absolute;
+    left: -15px;
+    color: #ffd166;
+}
+
+.intro .skill-category li::before {
+    color: #ffd166;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #1e261e;
+    color: white;
+}
+
+.traits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.trait {
+    background: #ffd166;
+    color: #2a3a2f;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.trait:hover {
+    background: #a87c01;
+    transform: scale(1.05);
+}
+
+.intro .trait {
+    background-color: #ffd166;
+    color: #2a3a2f;
+}
+
+.interests {
+    font-style: italic;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.intro .interests {
+    color: #ddd;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+        position: relative;
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+        align-items: center;
+    }
+
+    #mero {
+        padding: 120px 20px 80px;
+    }
+
+    .intro-pic {
+        width: 180px;
+        height: 180px;
+    }
+
+    section {
+        padding: 60px 20px;
+    }
+
+    .line {
+        padding-left: 20px;
+    }
+
+    .line-item::before {
+        left: -25px;
+    }
+
+    .line::before {
+        left: -15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .intro-pic {
+        width: 150px;
+        height: 150px;
+    }
+
+    .profile-img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .skill-category {
+        min-width: 100%;
+    }
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #ffd166;
+    color: #2a3a2f;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: #ffbb00;
+    transform: translateY(-3px);
+}
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="star.png" alt="star" id="star">Kshitiz Lamsal</div>
+        <nav>
+            <ul>
+                <li><a href="#about">About ME</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact" class="button">Contact Me!</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="mero">      
+        <h1 class="my-title">PORTFOLIO</h1>
+        <div alt="mero pic" class="intro-pic">
+        </div>
+        <h2 class="my-subtitle">Kshitiz Lamsal</h2>
+        <p>Beginner Web Designer | Animator</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/kshitiz_lamsal.zec/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/kshitiz.lamsal.56" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://github.com/zeciskl" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://mail.google.com/mail/?view=cm&to=zeclamsal@gmail.com" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+    
+    <section id="about" class="intro">
+        <img src="mero pic2.jpg" alt="Mero pic" class="profile-img">
+        <h2>Hello, I am Kshitiz!</h2>
+        <p>I am a Beginner Web Developer in Nepal with Animating and 3D Modling Skills. I am currently living in Lalitpur and pursuing a class 11 in NIST Science Course.</p>
+        <p>GitHub: <a href="https://github.com/zeciskl" style="color: #ffd166;" target="_blank">github.com/zeciskl</a></p>
+        <div class="traits">
+            <span class="trait">HTML</span>
+            <span class="trait">PHP</span>
+            <span class="trait">CSS & JAVASCRIPT</span>
+        </div>
+    </section>
+    
+    <section id="education">
+        <h2>Education</h2>
+        <div class="line">
+            <div class="line-item">
+                <span class="year">2081-2081</span>
+                <p><strong>NIST</strong><br>
+                Class 11</p>
+            </div>
+            <div class="line-item">
+                <span class="year">2081-2081</span>
+                <p><strong>Sky Bridg Foundation</strong><br>
+                After See bridge Course</p>
+            </div>
+            <div class="line-item">
+                <span class="year">2067-2080</span>
+                <p><strong>GORKHA UNITED PUBLIC SCHOOL</strong><br>
+                class Nursery to Class 10</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience" class="intro">
+        <h2>Experience</h2>
+        <div class="line">
+            <div class="line-item">
+                <span class="year">2081</span>
+                <p><strong>PHP</strong><br>
+                Created Advance Php projects</p>
+            </div>
+            <div class="line-item">
+                <span class="year">2080</span>
+                <p><strong>CSS</strong><br>
+                Styled multiple Websites.</p>
+            </div>
+            <div class="line-item">
+                <span class="year">2078</span>
+                <p><strong>HTMl</strong><br>
+                Designed multiple Advance website Structure</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="activities">
+        <h2>PROJECTS</h2>   
+        <div class="line">
+            <div class="line-item">
+                <span class="year">2080</span>
+                <br><br>PYTHON CALCULATOR
+            </div>
+            <div class="line-item">
+                <span class="year">2079</span>
+                <br><br>
+                ECONOMIC WEBSITE DESIG AND HOSTED
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills" class="intro">
+        <h2>Skills & Languages</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Languages</h3>
+                <ul>
+                    <li>English - Advance</li>
+                    <li>Hindi - Advance</li>
+                    <li>Nepali - Native</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Design Skills</h3>
+                <ul>
+                    <li>Logo Design</li>
+                    <li>Photoshop</li>
+                    <li>PowerPoint Design</li>
+                    <li>Animation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section id="interests">
+        <h2>Hobbies & Interests</h2>
+        <p class="interests">3D Modling | Animation | Triditional Art | Playing Games | Learning</p>
+    </section>
+    
+    <section id="contact" class="intro">
+        <h2>Contact</h2>
+        <p>Email: zeclamsal@gmail.com</p>
+        <p>Location: Lalitpur, Kathmandu</p>
+        <div style="margin-top: 30px;">
+            <a href="https://mail.google.com/mail/?view=cm&to=zeclamsal@gmail.com" target="_blank" class="button">Send me a message</a>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; <span id="current-year">2081</span> Kshitiz Lamsal. All rights reserved.</p>
+    </footer>
+
+    <a href="#mero" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
